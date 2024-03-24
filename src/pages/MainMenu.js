@@ -1,5 +1,5 @@
 import React from 'react';
-import UserTable from '../components/userTable';
+import UserTable from '../components/UserTable';
 import Filtering from "../components/Filtering"
 
 const MainMenu = ({userData}) => {

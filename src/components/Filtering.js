@@ -1,38 +1,45 @@
 import React, { useState } from 'react';
-import userJson from "../usersData/users.json";
+import { useDispatch } from 'react-redux';
+import userData from "../usersData/users.json";
+import { setFilteredUsers } from '../components/DataSlice'; 
 
-const UserFilter = ({ applyFilters }) => {
-  const [filters, setFilters] = useState({
-    university: "",
-    country: "",
-    language: ""
-  });
+const Filtering = () => {
+  const [university, setUniversity] = useState('');
+  const [language, setLanguage] = useState('');
+  const [country, setCountry] = useState('');
 
-  const handleFilterChange = (e) => {
-    const { name, value } = e.target;
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [name]: value
-    }));
+  const dispatch = useDispatch();
+
+  const handleUniversityChange = (e) => {
+    setUniversity(e.target.value);
   };
 
-  const handleApplyFilters = () => {
-    applyFilters(filters);
+  const handleLanguageChange = (e) => {
+    setLanguage(e.target.value);
   };
 
+  const handleCountryChange = (e) => {
+    setCountry(e.target.value);
+  };
+
+  const handleFilterClick = () => {
+    const filteredUsers = userData.filter(user => 
+      user.univercity.toLowerCase().includes(university.toLowerCase()) &&
+      user.dil.toLowerCase().includes(language.toLowerCase()) &&
+      user.ülke.toLowerCase().includes(country.toLowerCase())
+    );
+    dispatch(setFilteredUsers(filteredUsers)); 
+  };
+  
   return (
-    <div className="mb-4">
-      <label className="block mb-2">University:</label>
-      <input
-        type="text"
-        name="university"
-        value={filters.university}
-        onChange={handleFilterChange}
-        className="border border-gray-300 rounded px-3 py-1 mb-2"
-      />
-      <button onClick={handleApplyFilters} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Apply Filters</button>
+    <div>
+      <input type="text" placeholder="Üniversite Adı" value={university} onChange={handleUniversityChange} />
+      <input type="text" placeholder="Dil" value={language} onChange={handleLanguageChange} />
+      <input type="text" placeholder="Ülke" value={country} onChange={handleCountryChange} />
+
+      <button onClick={handleFilterClick}>Filtrele</button>
     </div>
   );
 }
 
-export default UserFilter;
+export default Filtering;

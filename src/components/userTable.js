@@ -1,9 +1,19 @@
 import React from 'react';
 import userJson from "../usersData/users.json";
 
+import { useSelector } from 'react-redux';
+import { selectFilteredUsers } from '../components/DataSlice';
+
 const UserTable = () => {
+
+  const filteredUsers = useSelector(selectFilteredUsers);
+  console.log(filteredUsers);
+  const allUsers = userJson;
+
+  const usersToDisplay = filteredUsers.length > 0 ? filteredUsers : allUsers;
+
   return (
-    <div className= "items-center p-0 overflow-auto">
+    <div className="items-center p-0 overflow-auto">
       <div className="mt-1 -mb-3">
         <div className="not-prose relative  overflow-hidden dark:bg-slate-700/75">
           <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.6))] dark:bg-grid-slate-700/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"></div>
@@ -22,10 +32,10 @@ const UserTable = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-red dark:bg-slate-800">
-                  {userJson.map((data, index) => (
+                  {usersToDisplay.map((data, index) => (
                     <tr key={index}>
                       <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{data.ad}</td>
-                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">{data["Üniversite"]}</td>
+                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">{data.univercity}</td>
                       <td className="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">{data.ülke}</td>
                       <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{data.başvuruSonTarihi}</td>
                       <td className="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">{data.maliyet}</td>

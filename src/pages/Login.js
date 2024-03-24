@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { useDispatch } from 'react-redux';
+import { setName } from '../components/DataSlice';
+
 const Login = () => {
+
+    
     return (
         <div className="w-full h-screen flex items-center justify-center bg">
             <div className="w-11/12 sm:w-5/12 md:w-3/12 glass">
@@ -18,7 +23,7 @@ const Login = () => {
                     </div>
 
                     <div className='flex border-b-black border-b-2 mx-5 my-7 py-1'>
-                        <input className="w-11/12 bg-transparent outline-none" type='password' placeholder='enter your em ail'></input>
+                        <input className="w-11/12 bg-transparent outline-none" type='password' placeholder='enter your password'></input>
                         <div className="w-2/12 flex items-center justify-center">
                             <i className="fa-solid fa-lock text-xl"></i>
                         </div>
