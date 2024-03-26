@@ -2,19 +2,21 @@ const mongoose = require("mongoose")
 const connect = mongoose.connect("mongodb+srv://admin:sagopakajmer123456@demo-cluster.p5xgkyz.mongodb.net/?retryWrites=true&w=majority&appName=demo-cluster")
 
 
-connect.then(()=>{
+connect.then(() => {
   console.log("Succesfully");
 })
-.catch(()=>{
+  .catch(() => {
     console.log("Can'not");
-})
+  })
 
 const LoginSchema = new mongoose.Schema({
-    username: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
+  name: { type: String, required: true },
+  surname: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
 })
 
-const collection = new mongoose.model("User", LoginSchema )
+const collection = new mongoose.model("User", LoginSchema)
 
 
 module.exports = collection

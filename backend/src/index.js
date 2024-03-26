@@ -11,13 +11,22 @@ connectDB();
 
 app.post('/signup', async (req, res) => {
     try {
+        const { email } = req.body;
+
+        // Veritabanında aynı email adresine sahip kullanıcıyı ara
+        const existingUser = await User.findOne({ email });
+
+        if (existingUser) {
+            return res.status(400).send('Bu email adresi zaten kullanımda');
+        }
+
+        // Email adresi kullanılmıyorsa yeni kullanıcı oluştur
         const user = new User(req.body);
-        console.log(user);
         await user.save();
-        res.status(201).send('User created successfully');
+        res.status(201).send('Kullanıcı başarıyla oluşturuldu');
     } catch (error) {
         console.error(error);
-        res.status(400).send('Error creating user');
+        res.status(400).send('Kullanıcı oluşturulurken bir hata oluştu');
     }
 });
 
