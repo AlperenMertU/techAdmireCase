@@ -1,7 +1,29 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch('http://localhost:5000/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            });
+
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
     return (
         <div className="w-full h-screen flex items-center justify-center bg">
             <div className="w-11/12 sm:w-5/12 md:w-3/12 glass">
@@ -9,18 +31,19 @@ const Register = () => {
                     <h2 className="text-2xl text-black font-light">Sign Up</h2>
                 </div>
 
-                <form className="my-2" action='/signup' method='post'>
+                <form className="my-2" onSubmit={handleSubmit}>
+
                     <div className='flex border-b-black border-b-2 mx-5 my-7 py-1'>
-                        <input name="username" className="w-11/12 bg-transparent outline-none" type='text' placeholder='enter your email adress'></input>
-                        <div className="w-2/12 flex items-center justify-center">
+                    <input name="username" value={username} onChange={(e) => setUsername(e.target.value)} className="w-11/12 bg-transparent outline-none" type='text' placeholder='enter your email adress'></input>
+                    <div className="w-2/12 flex items-center justify-center">
                             <i className="fa-solid fa-envelope text-xl"></i>
                         </div>
                     </div>
 
 
                     <div className='flex border-b-black border-b-2 mx-5 my-7 py-1'>
-                        <input name="password" className="w-11/12 bg-transparent outline-none" type='password' placeholder='confrim your passowr'></input>
-                        <div className="w-2/12 flex items-center justify-center">
+                    <input name="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-11/12 bg-transparent outline-none" type='password' placeholder='confrim your password'></input>
+                    <div className="w-2/12 flex items-center justify-center">
                             <i className="fa-solid fa-user text-xl"></i>
                         </div>
                     </div>

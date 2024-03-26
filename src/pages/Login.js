@@ -19,7 +19,8 @@ const Login = () => {
                 username,
                 password,
             });
-            console.log(response.data.message);
+            
+            console.log(response);
         } catch (error) {
             console.error('Error:', error);
             setErrorMessage('Error occurred, please try again');
@@ -40,7 +41,7 @@ const Login = () => {
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             className="w-11/12 bg-transparent outline-none"
-                            ></input>
+                        ></input>
                         <div className="w-2/12 flex items-center justify-center">
                             <i className="fa-solid fa-envelope text-xl"></i>
                         </div>
