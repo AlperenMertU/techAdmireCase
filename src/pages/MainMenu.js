@@ -16,7 +16,7 @@ const MainMenu = ({userData}) => {
                                 </svg>
                             </button>
                             <a className="flex ms-2 md:me-24">
-                                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Mert Urdoğan</span>
+                                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Tech Admire</span>
                             </a>
                         </div>
                         <div className="flex items-center">
@@ -126,7 +126,7 @@ const MainMenu = ({userData}) => {
 
             <div className="p-0 sm:ml-64 pt-12">
 
-                <div className="p-2 rounded-lg flex">
+                <div className="p-2 pt-5 rounded-lg flex">
                     <Filtering />
                 </div>
 

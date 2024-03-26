@@ -6,7 +6,7 @@ import { selectFilteredUsers } from '../components/DataSlice';
 
 const UserTable = () => {
 
-  const perPage = 6; 
+  const perPage = 8; 
   const [currentPage, setCurrentPage] = useState(1); 
   const filteredUsers = useSelector(selectFilteredUsers);
   console.log(filteredUsers);
@@ -46,13 +46,13 @@ const UserTable = () => {
                 <tbody className="bg-red dark:bg-slate-800">
                   {usersToDisplay.map((data, index) => (
                     <tr key={index}>
-                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{data.ad}</td>
-                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">{data.univercity}</td>
-                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">{data.ülke}</td>
-                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{data.başvuruSonTarihi}</td>
-                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">{data.maliyet}</td>
-                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">{data.süre}</td>
-                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">{data.dil}</td>
+                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{data.name}</td>
+                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">{data.university}</td>
+                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">{data.country}</td>
+                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{data.last_application_date}</td>
+                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">{data.price}</td>
+                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">{data.time}</td>
+                      <td className="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">{data.language}</td>
                     </tr>
                   ))}
                 </tbody>

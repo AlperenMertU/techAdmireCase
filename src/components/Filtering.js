@@ -13,19 +13,20 @@ const Filtering = () => {
   const [uniqueCountries, setUniqueCountries] = useState([]);
   const [uniqueDurations, setUniqueDurations] = useState([]);
   const [uniqueUniversities, setUniqueUniversities] = useState([]);
+  const [sortBy, setSortBy] = useState('');
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const countries = userData.map(user => user.ülke);
+    const countries = userData.map(user => user.country);
     const uniqueCountries = [...new Set(countries)];
     setUniqueCountries(uniqueCountries);
 
-    const durations = userData.map(user => user.süre);
+    const durations = userData.map(user => user.time);
     const uniqueDurations = [...new Set(durations)];
     setUniqueDurations(uniqueDurations);
 
-    const universities = userData.map(user => user.univercity);
+    const universities = userData.map(user => user.university);
     const uniqueUniversities = [...new Set(universities)];
     setUniqueUniversities(uniqueUniversities);
   }, []);
@@ -56,64 +57,86 @@ const Filtering = () => {
 
   const handleFilterClick = () => {
     let filteredUsers = userData.filter(user =>
-      user.univercity.toLowerCase().includes(university.toLowerCase()) &&
-      user.dil.toLowerCase().includes(language.toLowerCase()) &&
-      user.ülke.toLowerCase().includes(country.toLowerCase()) &&
-      user.süre.toLowerCase().includes(duration.toLowerCase())
+      user.university.toLowerCase().includes(university.toLowerCase()) &&
+      user.language.toLowerCase().includes(language.toLowerCase()) &&
+      user.country.toLowerCase().includes(country.toLowerCase()) &&
+      user.time.toLowerCase().includes(duration.toLowerCase())
     );
 
     if (minCost !== '' && !isNaN(parseFloat(minCost))) {
       filteredUsers = filteredUsers.filter(user =>
-        parseFloat(user.maliyet.replace(' TL', '').replace(',', '')) >= parseFloat(minCost)
+        parseFloat(user.price.replace(' TL', '').replace(',', '')) >= parseFloat(minCost)
       );
     }
 
     if (maxCost !== '' && !isNaN(parseFloat(maxCost))) {
       filteredUsers = filteredUsers.filter(user =>
-        parseFloat(user.maliyet.replace(' TL', '').replace(',', '')) <= parseFloat(maxCost)
+        parseFloat(user.price.replace(' TL', '').replace(',', '')) <= parseFloat(maxCost)
       );
     }
+    if (sortBy === 'minCost') {
+      filteredUsers.sort((a, b) => parseFloat(a.price.replace(' TL', '').replace(',', '')) - parseFloat(b.price.replace(' TL', '').replace(',', '')));
+    } else if (sortBy === 'maxCost') {
+      filteredUsers.sort((a, b) => parseFloat(b.price.replace(' TL', '').replace(',', '')) - parseFloat(a.price.replace(' TL', '').replace(',', '')));
+    } else if (sortBy === 'deadline') {
+      filteredUsers.sort((a, b) => new Date(a.başvuruSonTarihi) - new Date(b.başvuruSonTarihi));
+    }
+
 
     dispatch(setFilteredUsers(filteredUsers));
   };
 
   return (
-    <div>
+    <div className='flex space-x-3 items-center'>
 
-    
-    <select value={university} onChange={handleUniversityChange}>
-    <option value="">Tüm Üniversiteler</option>
-    {uniqueUniversities.map((university, index) => (
-      <option key={index} value={university}>{university}</option>
-    ))}
-  </select>
 
-      <select value={language} onChange={handleLanguageChange}>
-        <option value="">Tüm Diller</option>
-        <option value="İngilizce">İngilizce</option>
-        <option value="Fransızca">Fransızca</option>
-        <option value="Türkçe">Türkçe</option>
+
+      <select value={university} onChange={handleUniversityChange} class="block py-1  w-2/6 text-sm text-gray bg-transparent border-b-2 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+        <option value="">All Universities</option>
+        {uniqueUniversities.map((university, index) => (
+          <option key={index} value={university}>{university}</option>
+        ))}
       </select>
 
-      <select value={country} onChange={handleCountryChange}>
-        <option value="">Tüm Ülkeler</option>
+
+      <select value={language} onChange={handleLanguageChange} id="underline_select" class="block py-1 px-0 w-2/6  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+        <option value="">All languages</option>
+        <option value="English">English</option>
+        <option value="French">French</option>
+        <option value="Turkish">Turkish</option>
+      </select>
+
+      <select value={country} onChange={handleCountryChange} id="underline_select" class="block py-1 px-0 w-2/6 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+        <option value="">All Countries</option>
         {uniqueCountries.map((country, index) => (
           <option key={index} value={country}>{country}</option>
         ))}
       </select>
 
-      <select value={duration} onChange={handleDurationChange}>
-        <option value="">Tüm Süreler</option>
+
+      <select value={duration} onChange={handleDurationChange} id="underline_select" class="block py-1 px-0 w-2/6  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+        <option value="">All Time</option>
         {uniqueDurations.map((duration, index) => (
           <option key={index} value={duration}>{duration} Yıl</option>
         ))}
       </select>
 
-      <input type="number" placeholder="Min Maliyet" value={minCost} onChange={handleMinCostChange} />
-      <input type="number" placeholder="Max Maliyet" value={maxCost} onChange={handleMaxCostChange} />
 
-      <button onClick={handleFilterClick}>Filtrele</button>
-    </div>
+
+      <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} id="underline_select" class="block py-1 px-0 w-2/6  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+        <option value="">Advanced Sorting</option>
+        <option value="minCost">Lowest to highest cost</option>
+        <option value="maxCost">Highest to lowest cost</option>
+        <option value="deadline">Application Deadline</option>
+      </select>
+
+
+
+      <input type="number" className="w-3/12 outline-none" placeholder="Min price" value={minCost} onChange={handleMinCostChange} />
+      <input type="number" className="w-3/12 outline-none align-baseline justify-center text-center align-baseline border-r-2 border-gray-300 pr-2" placeholder="Max price" value={maxCost} onChange={handleMaxCostChange} />
+      <i type="button" onClick={handleFilterClick} className="fa-solid fa-filter text-2xl justify-center text-center align-baseline border-gray-300 pl-2 cursor-pointer "></i>
+
+      </div>
   );
 }
 

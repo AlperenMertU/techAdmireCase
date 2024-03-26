@@ -9,51 +9,29 @@ const Register = () => {
                     <h2 className="text-2xl text-black font-light">Sign Up</h2>
                 </div>
 
-                <form className="my-2">
+                <form className="my-2" action='/signup' method='post'>
                     <div className='flex border-b-black border-b-2 mx-5 my-7 py-1'>
-                        <input className="w-11/12 bg-transparent outline-none" type='text' placeholder='enter your email adress'></input>
+                        <input name="username" className="w-11/12 bg-transparent outline-none" type='text' placeholder='enter your email adress'></input>
                         <div className="w-2/12 flex items-center justify-center">
                             <i className="fa-solid fa-envelope text-xl"></i>
                         </div>
                     </div>
 
+
                     <div className='flex border-b-black border-b-2 mx-5 my-7 py-1'>
-                        <input className="w-11/12 bg-transparent outline-none" type='text' placeholder='enter your em ail'></input>
+                        <input name="password" className="w-11/12 bg-transparent outline-none" type='password' placeholder='confrim your passowr'></input>
                         <div className="w-2/12 flex items-center justify-center">
                             <i className="fa-solid fa-user text-xl"></i>
                         </div>
                     </div>
 
-                    <div className='flex border-b-black border-b-2 mx-5 my-7 py-1'>
-                        <input className="w-11/12 bg-transparent outline-none" type='text' placeholder='enter your em ail'></input>
-                        <div className="w-2/12 flex items-center justify-center">
-                            <i className="fa-solid fa-user text-xl"></i>
-                        </div>
+                    
+                    <div className="mx-5 my-5 py-2">
+                        <button type='submit' className="bg-slate-600 w-full h-[35px] rounded-sm text-white">Sign Up</button>
                     </div>
-
-                    <div className='flex border-b-black border-b-2 mx-5 my-7 py-1'>
-                        <input className="w-11/12 bg-transparent outline-none" type='password' placeholder='enter your password'></input>
-                        <div className="w-2/12 flex items-center justify-center">
-                            <i className="fa-solid fa-user text-xl"></i>
-                        </div>
-                    </div>
-
-                    <div className='flex border-b-black border-b-2 mx-5 my-7 py-1'>
-                        <input className="w-11/12 bg-transparent outline-none" type='password' placeholder='confrim your passowr'></input>
-                        <div className="w-2/12 flex items-center justify-center">
-                            <i className="fa-solid fa-user text-xl"></i>
-                        </div>
-                    </div>
-
-                     <Link to="/users">
-                     <div className="mx-5 my-5 py-2">
-                     <button className="bg-slate-600 w-full h-[35px] rounded-sm text-white">Sign Up</button>
-                   </div>
-                     </Link>
-                 
 
                     <Link to="/" className="mx-5 my-5 py-2 flex items-center justify-center cursor-pointer">
-                      <p className="text-sm">already ı have a accont / sign up</p>
+                        <p className="text-sm">already ı have a accont / login</p>
                     </Link>
                 </form>
             </div>
