@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios"
+import { useDispatch } from 'react-redux';
+import { setFilteredUsers , setNoData} from '../components/DataSlice';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const navigate = useNavigate(); // useNavigate tanımlanmıştır
+    const navigate = useNavigate(); 
+    const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,7 +23,7 @@ const Login = () => {
                 password,
             });
 
-            console.log(response);
+            console.log("response", response);
 
             if (response.data.status === 200) {
                 navigate('/users');
@@ -44,6 +47,8 @@ const Login = () => {
                     <div className='flex border-b-black border-b-2 mx-5 my-7 py-1'>
                         <input type="text"
                             placeholder="Enter email"
+                            autoComplete="on"
+
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className="w-11/12 bg-transparent outline-none"
@@ -68,11 +73,12 @@ const Login = () => {
                         <button type="submit" className="bg-slate-600 w-full h-[35px] rounded-sm text-white">Login</button>
                     </div>
 
-                    {errorMessage && <p className="text-red-500 text-sm justify-center text-center">Hatalı Giriş</p>}
+                    {errorMessage && <p className="text-red-500 text-sm justify-center text-center">Invalid email or password</p>}
 
-                    <Link to="/register" className="mx-5 my-5 py-2 flex items-center justify-center cursor-pointer">
-                        <p className="text-sm">don't have an account? Register</p>
-                    </Link>
+                    <div className="mx-5 my-5 py-2 flex items-center justify-center">
+                        <p className="text-sm">Don't have an account?<Link to="/register"  className='text-blue-500 cursor-pointer'>Register</Link> </p>
+                    </div>
+
                 </form>
             </div>
         </div>

@@ -30,13 +30,14 @@
     return (
       <div className="items-center p-0 overflow-auto h-lvh">
         <div className="mt-1 -mb-3">
-        {noData ? (
-          <div className="text-center">No Data Found</div>
-        ) : (
+    
           <div className="not-prose relative  overflow-hidden dark:bg-slate-700/75">
             <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.6))] dark:bg-grid-slate-700/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"></div>
             <div className="relative rounded-xl overflow-auto">
               <div className="">
+              {noData ? (
+                <div className="text-center">No Results</div>
+              ) : (
                 <table className="border-collapse table-auto w-full text-sm">
                   <thead>
                     <tr>
@@ -63,6 +64,7 @@
                     ))}
                   </tbody>
                 </table>
+                )}
               </div>
             </div>
             <nav aria-label="Page navigation example">
@@ -92,7 +94,7 @@
               </ul>
             </nav>
           </div>
-          )}
+   
         </div>
 
       </div>

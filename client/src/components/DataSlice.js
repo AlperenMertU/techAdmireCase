@@ -10,9 +10,10 @@ export const DataSlice = createSlice({
   },
 
   reducers: {
-   /*  setName: (state, action) => {
+ setName: (state, action) => {
       state.name = action.payload;
     },
+       /*
     setSelectedUser: (state, action) => {
       state.selectedUser = action.payload;
     }, */
@@ -29,6 +30,7 @@ export const DataSlice = createSlice({
 export const { setName, setSelectedUser, setFilteredUsers, setNoData } = DataSlice.actions;
 //export const selectUserName = (state) => state.user.name;
 //export const selectSelectedUser = (state) => state.user.selectedUser;
+export const selectName = (state) => state.user.name; 
 export const selectFilteredUsers = (state) => state.user.filteredUsers; 
 export const selectNoData = (state) => state.user.noData; 
 

@@ -128,15 +128,15 @@
   },
   {
     "name": "Julie Robert",
-    "university": "İstanbul Teknik Üniversitesi",
-    "country": "Germany",
+    "university": "Warsaw University",
+    "country": "Poland",
     "time": "5",
-    "price": "50.000 TL",
-    "last_application_date": "2024-05-01",
-    "language": "Türkçe"
+    "price": "100.000 TL",
+    "last_application_date": "2024-10-01",
+    "language": "English"
   },
   {
-    "name": "Julie Robert",
+    "name": "Krystyna Aleks",
     "university": "İstanbul Teknik Üniversitesi",
     "country": "Kırgızistan",
     "time": "3",

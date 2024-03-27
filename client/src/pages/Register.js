@@ -17,6 +17,10 @@ const Register = () => {
         return re.test(email);
     }
 
+    const handleChange = (e, setterFunc) => {
+        const { name, value } = e.target;
+        setterFunc(value.charAt(0).toUpperCase() + value.slice(1)); // Büyük harfle başlayan değeri set et
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -58,7 +62,7 @@ const Register = () => {
                     <h2 className="text-2xl text-black font-light">Register</h2>
                 </div>
                 {/* emailError && <div className="text-red-500 text-center">daha önce kullanılmış mail</div> */}
-                {existEmail && <div className="text-red-500 text-center">hata</div>}
+                {existEmail && <div className="text-red-500 text-center">enter a valid email</div>}
                 {passwordConfrimError && <div className="text-red-500 text-center">şifre uyumlu değil</div>}
 
 
@@ -67,20 +71,33 @@ const Register = () => {
 
 
 
-                    <div className='flex border-b-black border-b-2 mx-5 my-7 py-1'>
-                        <input name="name" value={name} onChange={(e) => setName(e.target.value)} className="w-11/12 bg-transparent outline-none" type='text' placeholder='John'></input>
-                        <div className="w-2/12 flex items-center justify-center">
-                            <i className="fa-solid fa-user text-xl"></i>
-                        </div>
-                    </div>
+                <div className='flex border-b-black border-b-2 mx-5 my-7 py-1'>
+                <input
+                    name="name"
+                    value={name}
+                    onChange={(e) => handleChange(e, setName)}
+                    className="w-11/12 bg-transparent outline-none"
+                    type='text'
+                    placeholder='John'
+                ></input>
+                <div className="w-2/12 flex items-center justify-center">
+                    <i className="fa-solid fa-user text-xl"></i>
+                </div>
+            </div>
 
-
-                    <div className='flex border-b-black border-b-2 mx-5 my-7 py-1'>
-                        <input name="surname" value={surname} onChange={(e) => setSurname(e.target.value)} className="w-11/12 bg-transparent outline-none" type='text' placeholder='Wizard'></input>
-                        <div className="w-2/12 flex items-center justify-center">
-                            <i className="fa-solid fa-user text-xl"></i>
-                        </div>
-                    </div>
+            <div className='flex border-b-black border-b-2 mx-5 my-7 py-1'>
+                <input
+                    name="surname"
+                    value={surname}
+                    onChange={(e) => handleChange(e, setSurname)}
+                    className="w-11/12 bg-transparent outline-none"
+                    type='text'
+                    placeholder='Wizard'
+                ></input>
+                <div className="w-2/12 flex items-center justify-center">
+                    <i className="fa-solid fa-envelope text-xl"></i>
+                </div>
+            </div>
 
 
                     <div className='flex border-b-black border-b-2 mx-5 my-7 py-1'>
@@ -125,9 +142,10 @@ const Register = () => {
                         <button type='submit' className="bg-slate-600 w-full h-[35px] rounded-sm text-white">Register</button>
                     </div>
 
-                    <Link to="/" className="mx-5 my-5 py-2 flex items-center justify-center cursor-pointer">
-                        <p className="text-sm">already ı have a accont /  login</p>
-                    </Link>
+                    <div className="mx-5 my-5 py-2 flex items-center justify-center">
+                        <p className="text-sm">Already have an account?<Link to="/" className='text-blue-500 cursor-pointer'>Login</Link> </p>
+                    </div>
+
                 </form>
             </div>
         </div>

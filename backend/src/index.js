@@ -37,25 +37,23 @@ app.get("/", (req, res) => {
 app.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
-
-    //input dolu boş kontrolü
     if (!email || !password) {
-        return res.send("Username and password are required");
+        return res.status(400).send("Email and password are required");
     }
 
     try {
         const user = await User.findOne({ email });
 
+        if (!user) {
+            return res.status(404).send("User not found");
+        }
 
+        const isPasswordMatch = password === user.password;
 
-        const isPasswordMatch = password
-        console.log("bu yazdığım", isPasswordMatch);
-        console.log("database şifre", user.password);
-
-        if (isPasswordMatch === user.password) {
+        if (isPasswordMatch) {
             return res.json({ message: 'Login successful', token: "", status: 200 });
         } else {
-            return res.status(500).send("user not found");
+            return res.status(401).send("Incorrect password");
         }
 
     } catch (error) {
@@ -63,6 +61,7 @@ app.post("/login", async (req, res) => {
         res.status(500).send("Error occurred");
     }
 })
+
 
 app.listen(5000, () => {
     console.log('Server running on port 5000');

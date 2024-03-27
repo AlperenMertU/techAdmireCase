@@ -1,3 +1,5 @@
+
+//All filtering procces is here
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import userData from "../usersData/users.json";
@@ -57,11 +59,21 @@ const Filtering = () => {
     setDuration(e.target.value);
   };
 
+  function formatNumberWithCommas(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
   const handleMinCostChange = (e) => {
-    setMinCost(e.target.value);
+    const value = e.target.value;
+    const formattedValue = formatNumberWithCommas(value);
+    setMinCost(formattedValue);
   };
 
   const handleMaxCostChange = (e) => {
+    const value = e.target.value;
+    const formattedValue = formatNumberWithCommas(value);
+    setMaxCost(formattedValue);
     setMaxCost(e.target.value);
   };
 
@@ -119,7 +131,7 @@ const Filtering = () => {
 
 
       <select value={language} onChange={handleLanguageChange} id="underline_select" className="block py-1 px-0 w-2/6  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-        <option value="">All languages</option>
+        <option value="">All Languages</option>
         <option value="English">English</option>
         <option value="French">French</option>
         <option value="Turkish">Turkish</option>
@@ -152,7 +164,7 @@ const Filtering = () => {
 
 
 
-      <input type="number" className="w-3/12 outline-none" placeholder="Min price" value={minCost} onChange={handleMinCostChange} />
+      <input type="number" className="w-3/12 outline-none align-baseline justify-center text-center align-baseline border-gray-300 pr-2" placeholder="Min price" value={minCost} onChange={handleMinCostChange} />
       <input type="number" className="w-3/12 outline-none align-baseline justify-center text-center align-baseline border-r-2 border-gray-300 pr-2" placeholder="Max price" value={maxCost} onChange={handleMaxCostChange} />
       <i type="button" onClick={handleFilterClick} className="fa-solid fa-filter text-2xl justify-center text-center align-baseline border-gray-300 pl-2 cursor-pointer "></i>
 
