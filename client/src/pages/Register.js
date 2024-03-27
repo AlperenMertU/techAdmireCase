@@ -8,6 +8,7 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
+    const [emailError, setEmailerror] = useState("")
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -29,6 +30,7 @@ const Register = () => {
             console.log(data);
         } catch (error) {
             console.error('Error:', error);
+            setEmailerror(error)
         }
     };
 
@@ -38,7 +40,9 @@ const Register = () => {
                 <div className="w-full text-center my-3">
                     <h2 className="text-2xl text-black font-light">Register</h2>
                 </div>
-                {error && <p className="text-red-500 text-center">{error}</p>}
+                {emailError && <div className="text-red-500 text-center">daha önce kullanılmış mail</div>}
+                {error && <div className="text-red-500 text-center">paasapor aynı değil</div>}
+
 
                 <form className="my-2" onSubmit={handleSubmit}>
 
