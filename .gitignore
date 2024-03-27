@@ -1,5 +1,14 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# Ignore node_modules in the root directory
+node_modules/
+
+# Ignore node_modules in the backend directory
+/backend/node_modules/
+
+# Ignore node_modules in the client directory
+/client/node_modules/
+
 # dependencies
 /node_modules
 /.pnp
@@ -17,6 +26,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 
 npm-debug.log*
 yarn-debug.log*

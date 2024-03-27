@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import userData from "../usersData/users.json";
-import { setFilteredUsers } from '../components/DataSlice';
+import { setFilteredUsers , setNoData} from '../components/DataSlice';
 
 const Filtering = () => {
   const [university, setUniversity] = useState('');
@@ -14,6 +14,9 @@ const Filtering = () => {
   const [uniqueDurations, setUniqueDurations] = useState([]);
   const [uniqueUniversities, setUniqueUniversities] = useState([]);
   const [sortBy, setSortBy] = useState('');
+  const [noResults, setNoResults] = useState(false); 
+
+  console.log(noResults);
 
   const dispatch = useDispatch();
 
@@ -29,7 +32,14 @@ const Filtering = () => {
     const universities = userData.map(user => user.university);
     const uniqueUniversities = [...new Set(universities)];
     setUniqueUniversities(uniqueUniversities);
-  }, []);
+
+    if (noResults) {
+      dispatch(setNoData(true));
+    } else {
+      dispatch(setNoData(false)); 
+    }
+
+  }, [noResults, dispatch]);
 
   const handleUniversityChange = (e) => {
     setUniversity(e.target.value);
@@ -83,6 +93,15 @@ const Filtering = () => {
     }
 
 
+    if (filteredUsers.length === 0) {
+      setNoResults(true); 
+      
+    } else {
+      setNoResults(false); 
+    }
+
+
+
     dispatch(setFilteredUsers(filteredUsers));
   };
 
@@ -91,7 +110,7 @@ const Filtering = () => {
 
 
 
-      <select value={university} onChange={handleUniversityChange} class="block py-1  w-2/6 text-sm text-gray bg-transparent border-b-2 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+      <select value={university} onChange={handleUniversityChange} className="block py-1  w-2/6 text-sm text-gray bg-transparent border-b-2 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
         <option value="">All Universities</option>
         {uniqueUniversities.map((university, index) => (
           <option key={index} value={university}>{university}</option>
@@ -99,14 +118,14 @@ const Filtering = () => {
       </select>
 
 
-      <select value={language} onChange={handleLanguageChange} id="underline_select" class="block py-1 px-0 w-2/6  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+      <select value={language} onChange={handleLanguageChange} id="underline_select" className="block py-1 px-0 w-2/6  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
         <option value="">All languages</option>
         <option value="English">English</option>
         <option value="French">French</option>
         <option value="Turkish">Turkish</option>
       </select>
 
-      <select value={country} onChange={handleCountryChange} id="underline_select" class="block py-1 px-0 w-2/6 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+      <select value={country} onChange={handleCountryChange} id="underline_select" className="block py-1 px-0 w-2/6 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
         <option value="">All Countries</option>
         {uniqueCountries.map((country, index) => (
           <option key={index} value={country}>{country}</option>
@@ -114,7 +133,7 @@ const Filtering = () => {
       </select>
 
 
-      <select value={duration} onChange={handleDurationChange} id="underline_select" class="block py-1 px-0 w-2/6  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+      <select value={duration} onChange={handleDurationChange} id="underline_select" className="block py-1 px-0 w-2/6  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
         <option value="">All Time</option>
         {uniqueDurations.map((duration, index) => (
           <option key={index} value={duration}>{duration} Yıl</option>
@@ -123,12 +142,13 @@ const Filtering = () => {
 
 
 
-      <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} id="underline_select" class="block py-1 px-0 w-2/6  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+      <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} id="underline_select" className="block py-1 px-0 w-2/6  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
         <option value="">Advanced Sorting</option>
         <option value="minCost">Lowest to highest cost</option>
         <option value="maxCost">Highest to lowest cost</option>
         <option value="deadline">Application Deadline</option>
       </select>
+
 
 
 

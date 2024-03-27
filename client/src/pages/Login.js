@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios"
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate(); // useNavigate tanımlanmıştır
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!email || !password) {
-            setErrorMessage("Incorret password or email");
+            setErrorMessage("Incorrect password or email");
             return;
         }
         try {
@@ -18,8 +19,14 @@ const Login = () => {
                 email,
                 password,
             });
-            
+
             console.log(response);
+
+            if (response.data.status === 200) {
+                navigate('/users');
+            } else {
+                setErrorMessage('User not found');
+            }
         } catch (error) {
             console.error('Error:', error);
             setErrorMessage('Error occurred, please try again');
