@@ -1,4 +1,3 @@
-# Case Study - Login Formu ile Kullanıcı Dostu Chat Ekranı
 
 ## Tools and Freamworks
 
