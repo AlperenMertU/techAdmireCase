@@ -4,7 +4,7 @@
     "name": "Mert Urdoğan",
     "university": "Pamukkale Üniversitesi",
     "country": "Poland",
-    "time": "8",
+    "year": "8",
     "price": "22.000 TL",
     "last_application_date": "2024-05-01",
     "language": "English"
@@ -13,7 +13,7 @@
     "name": "Ahmet Mümtaz",
     "university": "Dokuz Eylül Üniversitesi",
     "country": "Turkiye",
-    "time": "8",
+    "year": "8",
     "price": "22.000 TL",
     "last_application_date": "2024-05-01",
     "language": "English"
@@ -22,7 +22,7 @@
     "name": "Kerem Aktürk",
     "university": "Akdeniz Üniversitesi",
     "country": "Turkiye",
-    "time": "8",
+    "year": "8",
     "price": "50.000 TL",
     "last_application_date": "2024-05-01",
     "language": "Turkish"
@@ -31,7 +31,7 @@
     "name": "Ayşe Yılmaz",
     "university": "Akdeniz Üniversitesi",
     "country": "Turkiye",
-    "time": "8",
+    "year": "8",
     "price": "50.000 TL",
     "last_application_date": "2024-05-01",
     "language": "Turkish"
@@ -40,7 +40,7 @@
     "name": "Ayşe Ogün",
     "university": "Karaman Üniversitesi",
     "country": "Turkiye",
-    "time": "8",
+    "year": "8",
     "price": "100.000 TL",
     "last_application_date": "2024-05-01",
     "language": "Turkish"
@@ -49,7 +49,7 @@
     "name": "Atilla Gündöğdu",
     "university": "Karaman Üniversitesi",
     "country": "Russia",
-    "time": "8",
+    "year": "8",
     "price": "80.000 TL",
     "last_application_date": "2024-05-01",
     "language": "English"
@@ -58,7 +58,7 @@
     "name": "Baki Umur",
     "university": "Karaman Üniversitesi",
     "country": "Russia",
-    "time": "8",
+    "year": "8",
     "price": "80.000 TL",
     "last_application_date": "2024-05-01",
     "language": "French"
@@ -67,7 +67,7 @@
     "name": "Helen İvanova",
     "university": "Karaman Üniversitesi",
     "country": "Russia",
-    "time": "6",
+    "year": "6",
     "price": "100.000 TL",
     "last_application_date": "2024-05-01",
     "language": "French"
@@ -76,7 +76,7 @@
     "name": "Aysha Kyrga",
     "university": "Karaman Üniversitesi",
     "country": "Kazakistan",
-    "time": "6",
+    "year": "6",
     "price": "50.000 TL",
     "last_application_date": "2024-05-01",
     "language": "Turkish"
@@ -85,7 +85,7 @@
     "name": "Melissa Tag",
     "university": "Pamukkale Üniversitesi",
     "country": "Kazakistan",
-    "time": "6",
+    "year": "6",
     "price": "50.000 TL",
     "last_application_date": "2024-05-01",
     "language": "Turkish"
@@ -94,7 +94,7 @@
     "name": "Julie Robert",
     "university": "Kocaeli Üniversitesi",
     "country": "Turkiye",
-    "time": "6",
+    "year": "6",
     "price": "45.000 TL",
     "last_application_date": "2024-05-01",
     "language": "English"
@@ -103,7 +103,7 @@
     "name": "Julie Robert",
     "university": "Ege Üniversitesi",
     "country": "Turkiye",
-    "time": "6",
+    "year": "6",
     "price": "45.000 TL",
     "last_application_date": "2024-05-01",
     "language": "Türkçe"
@@ -112,7 +112,7 @@
     "name": "Ahmet",
     "university": "Orta Doğu Teknik Üniversitesi",
     "country": "Turkiye",
-    "time": "5",
+    "year": "5",
     "price": "45.000 TL",
     "last_application_date": "2024-05-01",
     "language": "Türkçe"
@@ -121,7 +121,7 @@
     "name": "Kerem",
     "university": "Orta Doğu Teknik Üniversitesi",
     "country": "Turkiye",
-    "time": "5",
+    "year": "5",
     "price": "50.000 TL",
     "last_application_date": "2024-05-01",
     "language": "Türkçe"
@@ -130,7 +130,7 @@
     "name": "Julie Robert",
     "university": "Warsaw University",
     "country": "Poland",
-    "time": "5",
+    "year": "5",
     "price": "100.000 TL",
     "last_application_date": "2024-10-01",
     "language": "English"
@@ -139,7 +139,7 @@
     "name": "Krystyna Aleks",
     "university": "İstanbul Teknik Üniversitesi",
     "country": "Kırgızistan",
-    "time": "3",
+    "year": "3",
     "price": "50.000 TL",
     "last_application_date": "2024-05-01",
     "language": "Türkçe"
@@ -148,7 +148,7 @@
     "name": "Julie Robert",
     "university": "İstanbul Teknik Üniversitesi",
     "country": "Germany",
-    "time": "3",
+    "year": "3",
     "price": "50.000 TL",
     "last_application_date": "2024-05-01",
     "language": "Türkçe"
@@ -157,7 +157,7 @@
     "name": "Frederic Shumer",
     "university": "İstanbul Teknik Üniversitesi",
     "country": "Germany",
-    "time": "3",
+    "year": "3",
     "price": "78,000 TL",
     "last_application_date": "2023-05-01",
     "language": "Türkçe"
@@ -166,7 +166,7 @@
     "name": "Helen Himmer",
     "university": "İstanbul Teknik Üniversitesi",
     "country": "Germany",
-    "time": "5",
+    "year": "5",
     "price": "78,000 TL",
     "last_application_date": "2023-05-01",
     "language": "Türkçe"
@@ -175,7 +175,7 @@
     "name": "Based Uwosas",
     "university": "İstanbul Teknik Üniversitesi",
     "country": "Mauritania",
-    "time": "4",
+    "year": "4",
     "price": "78,000 TL",
     "last_application_date": "2023-01-12",
     "language": "French"
@@ -184,7 +184,7 @@
     "name": "Margeret Fderik",
     "university": "Bogaziçi Üniversitesi",
     "country": "Mauritania",
-    "time": "4",
+    "year": "4",
     "price": "22.000 TL",
     "last_application_date": "2023-01-13",
     "language": "French"
@@ -193,7 +193,7 @@
     "name": "Dani Aimbentil",
     "university": "Bogaziçi Üniversitesi",
     "country": "Mauritania",
-    "time": "4",
+    "year": "4",
     "price": "22.000 TL",
     "last_application_date": "2023-01-14",
     "language": "French"
@@ -202,7 +202,7 @@
     "name": "Barbara Mekal",
     "university": "Bogaziçi Üniversitesi",
     "country": "Turkiye",
-    "time": "3",
+    "year": "3",
     "price": "22.000 TL",
     "last_application_date": "2023-01-15",
     "language": "Türkçe"
@@ -211,7 +211,7 @@
     "name": "Margeret Webbun",
     "university": "Bogaziçi Üniversitesi",
     "country": "Turkiye",
-    "time": "4",
+    "year": "4",
     "price": "22.000 TL",
     "last_application_date": "2024-01-18",
     "language": "Türkçe"
@@ -220,7 +220,7 @@
     "name": "Mert Urdoğan",
     "university": "Pamukkale Üniversitesi",
     "country": "England",
-    "time": "4",
+    "year": "4",
     "price": "22.000 TL",
     "last_application_date": "2024-05-01",
     "language": "English"
@@ -229,7 +229,7 @@
     "name": "Ahmet Mümtaz",
     "university": "Dokuz Eylül Üniversitesi",
     "country": "England",
-    "time": "4",
+    "year": "4",
     "price": "22.000 TL",
     "last_application_date": "2024-05-01",
     "language": "English"
@@ -238,7 +238,7 @@
     "name": "Kerem Aktürk",
     "university": "Akdeniz Üniversitesi",
     "country": "Germany",
-    "time": "4",
+    "year": "4",
     "price": "50.000 TL",
     "last_application_date": "2024-05-01",
     "language": "English"
@@ -247,7 +247,7 @@
     "name": "Ayşe Yılmaz",
     "university": "Akdeniz Üniversitesi",
     "country": "Germany",
-    "time": "4",
+    "year": "4",
     "price": "50.000 TL",
     "last_application_date": "2024-05-01",
     "language": "English"
@@ -256,7 +256,7 @@
     "name": "Ayşe Ogün",
     "university": "Karaman Üniversitesi",
     "country": "Germany",
-    "time": "7",
+    "year": "7",
     "price": "100.000 TL",
     "last_application_date": "2024-05-01",
     "language": "English"
@@ -265,7 +265,7 @@
     "name": "Atilla Gündöğdu",
     "university": "Karaman Üniversitesi",
     "country": "Russia",
-    "time": "3",
+    "year": "3",
     "price": "80.000 TL",
     "last_application_date": "2024-05-01",
     "language": "English"
@@ -274,7 +274,7 @@
     "name": "Baki Umur",
     "university": "Karaman Üniversitesi",
     "country": "Russia",
-    "time": "3",
+    "year": "3",
     "price": "80.000 TL",
     "last_application_date": "2024-05-01",
     "language": "French"
@@ -283,7 +283,7 @@
     "name": "Helen İvanova",
     "university": "Karaman Üniversitesi",
     "country": "Russia",
-    "time": "3",
+    "year": "3",
     "price": "100.000 TL",
     "last_application_date": "2024-05-01",
     "language": "French"
@@ -292,7 +292,7 @@
     "name": "Aysha Kyrga",
     "university": "Karaman Üniversitesi",
     "country": "Kazakistan",
-    "time": "3",
+    "year": "3",
     "price": "50.000 TL",
     "last_application_date": "2024-05-01",
     "language": "Turkish"
@@ -301,7 +301,7 @@
     "name": "Melissa Tag",
     "university": "Pamukkale Üniversitesi",
     "country": "Kazakistan",
-    "time": "3",
+    "year": "3",
     "price": "50.000 TL",
     "last_application_date": "2024-05-01",
     "language": "Turkish"
@@ -310,7 +310,7 @@
     "name": "Hande Erdoğan",
     "university": "Kocaeli Üniversitesi",
     "country": "Turkiye",
-    "time": "1",
+    "year": "1",
     "price": "45.000 TL",
     "last_application_date": "2024-05-01",
     "language": "English"
@@ -319,7 +319,7 @@
     "name": "Pakize Soylu",
     "university": "Ege Üniversitesi",
     "country": "Turkiye",
-    "time": "1",
+    "year": "1",
     "price": "45.000 TL",
     "last_application_date": "2024-05-01",
     "language": "Türkçe"
@@ -328,7 +328,7 @@
     "name": "Ahmet",
     "university": "Orta Doğu Teknik Üniversitesi",
     "country": "Turkiye",
-    "time": "1",
+    "year": "1",
     "price": "45.000 TL",
     "last_application_date": "2024-05-01",
     "language": "Türkçe"
@@ -337,7 +337,7 @@
     "name": "Kerem",
     "university": "Orta Doğu Teknik Üniversitesi",
     "country": "Turkiye",
-    "time": "1",
+    "year": "1",
     "price": "50.000 TL",
     "last_application_date": "2021-01-01",
     "language": "Türkçe"
@@ -346,7 +346,7 @@
     "name": "Julie Robert",
     "university": "İstanbul Teknik Üniversitesi",
     "country": "Germany",
-    "time": "1",
+    "year": "1",
     "price": "50.000 TL",
     "last_application_date": "2023-01-01",
     "language": "Türkçe"
@@ -355,7 +355,7 @@
     "name": "Angela Hamburg",
     "university": "İstanbul Teknik Üniversitesi",
     "country": "Kırgızistan",
-    "time": "3",
+    "year": "3",
     "price": "50.000 TL",
     "last_application_date": "2023-01-01",
     "language": "Türkçe"
@@ -364,7 +364,7 @@
     "name": "Angela Merkel",
     "university": "İstanbul Teknik Üniversitesi",
     "country": "Germany",
-    "time": "3",
+    "year": "3",
     "price": "50.000 TL",
     "last_application_date": "2023-01-01",
     "language": "Türkçe"
@@ -373,7 +373,7 @@
     "name": "Mia Leon",
     "university": "İstanbul Teknik Üniversitesi",
     "country": "Germany",
-    "time": "3",
+    "year": "3",
     "price": "78,000 TL",
     "last_application_date": "2024-01-01",
     "language": "Türkçe"
@@ -382,7 +382,7 @@
     "name": "Jonas Ben",
     "university": "İstanbul Teknik Üniversitesi",
     "country": "Germany",
-    "time": "3",
+    "year": "3",
     "price": "78,000 TL",
     "last_application_date": "2024-05-01",
     "language": "Türkçe"
@@ -391,7 +391,7 @@
     "name": "İsmael Kereem",
     "university": "İstanbul Teknik Üniversitesi",
     "country": "Mauritania",
-    "time": "3",
+    "year": "3",
     "price": "78,000 TL",
     "last_application_date": "2024-11-01",
     "language": "French"
@@ -400,7 +400,7 @@
     "name": "Julie Robert",
     "university": "Bogaziçi Üniversitesi",
     "country": "Mauritania",
-    "time": "2",
+    "year": "2",
     "price": "22.000 TL",
     "last_application_date": "2024-11-01",
     "language": "French"
@@ -409,7 +409,7 @@
     "name": "Raphael Gabriel",
     "university": "Bogaziçi Üniversitesi",
     "country": "France",
-    "time": "2",
+    "year": "2",
     "price": "22.000 TL",
     "last_application_date": "2024-11-01",
     "language": "Türkçe"
@@ -418,7 +418,7 @@
     "name": "Louise Gabriel",
     "university": "Bogaziçi Üniversitesi",
     "country": "Germany",
-    "time": "2",
+    "year": "2",
     "price": "22.000 TL",
     "last_application_date": "2024-11-01",
     "language": "Türkçe"
@@ -427,7 +427,7 @@
     "name": "Alice Chloé",
     "university": "Bogaziçi Üniversitesi",
     "country": "Germany",
-    "time": "2",
+    "year": "2",
     "price": "22.000 TL",
     "last_application_date": "2024-11-01",
     "language": "Türkçe"
@@ -437,7 +437,7 @@
     "name": "Julie Chloé",
     "university": "Bogaziçi Üniversitesi",
     "country": "Germany",
-    "time": "2",
+    "year": "2",
     "price": "22.000 TL",
     "last_application_date": "2024-11-01",
     "language": "Türkçe"
@@ -446,7 +446,7 @@
     "name": "Marie Chloé",
     "university": "Bogaziçi Üniversitesi",
     "country": "Germany",
-    "time": "2",
+    "year": "2",
     "price": "22.000 TL",
     "last_application_date": "2024-11-01",
     "language": "Türkçe"

@@ -25,3 +25,31 @@ const collection = new mongoose.model("User", LoginSchema)
 
 
 module.exports = collection
+
+
+/* const mongoose = require("mongoose")
+
+//conncet my database
+const connect = mongoose.connect("mongodb+srv://admin:sagopakajmer123456@demo-cluster.p5xgkyz.mongodb.net/?retryWrites=true&w=majority&appName=demo-cluster")
+
+
+connect.then(() => {
+console.log("Succesfully");
+})
+.catch(() => {
+  console.log("Can'not");
+})
+
+//create my values in my databes
+const LoginSchema = new mongoose.Schema({
+name: { type: String, required: true },
+surname: { type: String, required: true },
+email: { type: String, required: true, unique: true },
+password: { type: String, required: true },
+})
+
+const collection = new mongoose.model("User", LoginSchema)
+
+
+module.exports = collection 
+ */

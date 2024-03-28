@@ -11,7 +11,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
 
-  console.log(process.env.REACT_APP_LOGIN_URL);
   return (
     
     <div className="w-full h-screen">

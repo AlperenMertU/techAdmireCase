@@ -9,24 +9,20 @@
     const [currentPage, setCurrentPage] = useState(1); 
     const filteredUsers = useSelector(selectFilteredUsers);
     const noData = useSelector(selectNoData)
-    console.log(filteredUsers);
     const allUsers = userJson;
   
+
+    //here is pagination procces 
     const paginate = (array, page_size, page_number) => {
       return array.slice((page_number - 1) * page_size, page_number * page_size);
     };
-  
     const usersToDisplay = filteredUsers.length > 0 ? paginate(filteredUsers, perPage, currentPage) : paginate(allUsers, perPage, currentPage);
-  
     const totalPages = Math.ceil((filteredUsers.length > 0 ? filteredUsers.length : allUsers.length) / perPage);
-  
     const handlePageChange = (pageNumber) => {
       setCurrentPage(pageNumber);
     };
 
-
-    console.log("noData: ", noData);
-  
+    //here listeinng my datas
     return (
       <div className="items-center p-0 overflow-auto h-lvh">
         <div className="mt-1 -mb-3">
@@ -58,7 +54,7 @@
                         <td className="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">{data.country}</td>
                         <td className="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{data.last_application_date}</td>
                         <td className="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">{data.price}</td>
-                        <td className="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">{data.time}</td>
+                        <td className="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">{data.year}</td>
                         <td className="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">{data.language}</td>
                       </tr>
                     ))}

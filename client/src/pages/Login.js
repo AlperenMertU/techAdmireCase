@@ -2,28 +2,25 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios"
 import { useDispatch } from 'react-redux';
-import { setFilteredUsers , setNoData} from '../components/DataSlice';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate(); 
-    const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        //if email or password inputs is empty, or email adlredy using 
         if (!email || !password) {
             setErrorMessage("Incorrect password or email");
             return;
         }
-        try {
-            const response = await axios.post('http://localhost:5000/login', {
-                email,
-                password,
-            });
 
-            console.log("response", response);
+        try {
+            //send email and password, if not error goo users
+            const response = await axios.post('http://localhost:5000/login', {email, password});
 
             if (response.data.status === 200) {
                 navigate('/users');
@@ -32,7 +29,8 @@ const Login = () => {
             }
         } catch (error) {
             console.error('Error:', error);
-            setErrorMessage('Error occurred, please try again');
+            setErrorMessage('User not found');
+
         }
     };
 

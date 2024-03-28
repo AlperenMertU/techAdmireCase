@@ -1,5 +1,3 @@
-
-//All filtering procces is here
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import userData from "../usersData/users.json";
@@ -9,7 +7,7 @@ const Filtering = () => {
   const [university, setUniversity] = useState('');
   const [language, setLanguage] = useState('');
   const [country, setCountry] = useState('');
-  const [duration, setDuration] = useState('');
+  const [year, setYear] = useState('');
   const [minCost, setMinCost] = useState('');
   const [maxCost, setMaxCost] = useState('');
   const [uniqueCountries, setUniqueCountries] = useState([]);
@@ -22,18 +20,22 @@ const Filtering = () => {
 
   const dispatch = useDispatch();
 
+    //this is  list the option elements in select, from a to z or from smallest to largest. and checks to data
+
   useEffect(() => {
     const countries = userData.map(user => user.country);
     const uniqueCountries = [...new Set(countries)];
     setUniqueCountries(uniqueCountries);
 
-    const durations = userData.map(user => user.time);
+    const durations = userData.map(user => user.year);
     const uniqueDurations = [...new Set(durations)];
     setUniqueDurations(uniqueDurations);
 
     const universities = userData.map(user => user.university);
     const uniqueUniversities = [...new Set(universities)];
     setUniqueUniversities(uniqueUniversities);
+
+        //check users data if no reuslts add store this boolean value
 
     if (noResults) {
       dispatch(setNoData(true));
@@ -42,6 +44,8 @@ const Filtering = () => {
     }
 
   }, [noResults, dispatch]);
+
+    //get datas from inputs
 
   const handleUniversityChange = (e) => {
     setUniversity(e.target.value);
@@ -56,46 +60,44 @@ const Filtering = () => {
   };
 
   const handleDurationChange = (e) => {
-    setDuration(e.target.value);
+    setYear(e.target.value);
   };
 
-  function formatNumberWithCommas(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-
   const handleMinCostChange = (e) => {
-    const value = e.target.value;
-    const formattedValue = formatNumberWithCommas(value);
-    setMinCost(formattedValue);
+    setMinCost(e.target.value);
   };
 
   const handleMaxCostChange = (e) => {
-    const value = e.target.value;
-    const formattedValue = formatNumberWithCommas(value);
-    setMaxCost(formattedValue);
     setMaxCost(e.target.value);
   };
 
+    //click button and see filter results
+
   const handleFilterClick = () => {
+        //here compares  data in the json with the data I filtered. if inclued same value set on filteredUsers variable
+
     let filteredUsers = userData.filter(user =>
       user.university.toLowerCase().includes(university.toLowerCase()) &&
       user.language.toLowerCase().includes(language.toLowerCase()) &&
       user.country.toLowerCase().includes(country.toLowerCase()) &&
-      user.time.toLowerCase().includes(duration.toLowerCase())
+      user.year.toLowerCase().includes(year.toLowerCase())
     );
+
+
+            //money compares
 
     if (minCost !== '' && !isNaN(parseFloat(minCost))) {
       filteredUsers = filteredUsers.filter(user =>
         parseFloat(user.price.replace(' TL', '').replace(',', '')) >= parseFloat(minCost)
       );
     }
-
     if (maxCost !== '' && !isNaN(parseFloat(maxCost))) {
       filteredUsers = filteredUsers.filter(user =>
         parseFloat(user.price.replace(' TL', '').replace(',', '')) <= parseFloat(maxCost)
       );
     }
+            //advanced sort procces, lwoest to high price, deadline..
+
     if (sortBy === 'minCost') {
       filteredUsers.sort((a, b) => parseFloat(a.price.replace(' TL', '').replace(',', '')) - parseFloat(b.price.replace(' TL', '').replace(',', '')));
     } else if (sortBy === 'maxCost') {
@@ -104,6 +106,7 @@ const Filtering = () => {
       filteredUsers.sort((a, b) => new Date(a.başvuruSonTarihi) - new Date(b.başvuruSonTarihi));
     }
 
+    //if no results set noresult and they go redux store
 
     if (filteredUsers.length === 0) {
       setNoResults(true); 
@@ -113,6 +116,7 @@ const Filtering = () => {
     }
 
 
+    //they are valueS go to UserTAble.js with the help of this
 
     dispatch(setFilteredUsers(filteredUsers));
   };
@@ -131,7 +135,7 @@ const Filtering = () => {
 
 
       <select value={language} onChange={handleLanguageChange} id="underline_select" className="block py-1 px-0 w-2/6  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-        <option value="">All Languages</option>
+        <option value="">All languages</option>
         <option value="English">English</option>
         <option value="French">French</option>
         <option value="Turkish">Turkish</option>
@@ -145,10 +149,10 @@ const Filtering = () => {
       </select>
 
 
-      <select value={duration} onChange={handleDurationChange} id="underline_select" className="block py-1 px-0 w-2/6  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+      <select value={year} onChange={handleDurationChange} id="underline_select" className="block py-1 px-0 w-2/6  text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
         <option value="">All Time</option>
-        {uniqueDurations.map((duration, index) => (
-          <option key={index} value={duration}>{duration} Yıl</option>
+        {uniqueDurations.map((year, index) => (
+          <option key={index} value={year}>{year} Year</option>
         ))}
       </select>
 
@@ -164,7 +168,7 @@ const Filtering = () => {
 
 
 
-      <input type="number" className="w-3/12 outline-none align-baseline justify-center text-center align-baseline border-gray-300 pr-2" placeholder="Min price" value={minCost} onChange={handleMinCostChange} />
+      <input type="number" className="w-3/12 outline-none" placeholder="Min price" value={minCost} onChange={handleMinCostChange} />
       <input type="number" className="w-3/12 outline-none align-baseline justify-center text-center align-baseline border-r-2 border-gray-300 pr-2" placeholder="Max price" value={maxCost} onChange={handleMaxCostChange} />
       <i type="button" onClick={handleFilterClick} className="fa-solid fa-filter text-2xl justify-center text-center align-baseline border-gray-300 pl-2 cursor-pointer "></i>
 
