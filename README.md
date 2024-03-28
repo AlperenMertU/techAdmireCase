@@ -11,5 +11,3 @@
 
 </p>
 
-## Proje Hakkında
-
