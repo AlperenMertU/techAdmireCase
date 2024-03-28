@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+/* const mongoose = require("mongoose");
 require("dotenv").config();
 
 const connect = mongoose.connect(process.env.MONGO_URI, {
@@ -24,13 +24,12 @@ const LoginSchema = new mongoose.Schema({
 const collection = new mongoose.model("User", LoginSchema)
 
 
-module.exports = collection
+module.exports = collection */
 
-
-/* const mongoose = require("mongoose")
+ const mongoose = require("mongoose")
 
 //conncet my database
-const connect = mongoose.connect("mongodb+srv://admin:sagopakajmer123456@demo-cluster.p5xgkyz.mongodb.net/?retryWrites=true&w=majority&appName=demo-cluster")
+const connect = mongoose.connect("")
 
 
 connect.then(() => {
@@ -52,4 +51,4 @@ const collection = new mongoose.model("User", LoginSchema)
 
 
 module.exports = collection 
- */
+ 
